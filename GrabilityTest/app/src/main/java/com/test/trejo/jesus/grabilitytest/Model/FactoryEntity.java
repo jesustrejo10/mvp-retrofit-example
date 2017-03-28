@@ -6,7 +6,5 @@ package com.test.trejo.jesus.grabilitytest.Model;
 
 public class FactoryEntity {
 
-    public static Movie getInstanceOfMovie(int id, String name){
-        return new Movie(id,name);
-    }
+
 }
