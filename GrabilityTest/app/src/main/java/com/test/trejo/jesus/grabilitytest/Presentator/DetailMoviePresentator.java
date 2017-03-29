@@ -87,9 +87,11 @@ public class DetailMoviePresentator extends Presentator implements IDetailMovieP
      */
     private void sendValuesToView(Movie movie){
 
-        mFragment.setMovieName(movie.getOriginalTitle());
+        mFragment.setMovieName(movie.getTitle());
         mFragment.setMovieDescription(movie.getOverview());
         String base = "http://image.tmdb.org/t/p/w185"+movie.getBackdropPath();
         mFragment.setMovieImage(base);
+        mFragment.setMovieDate(movie.getReleaseDate());
+        mFragment.setMovieRate(Double.toString(movie.getVoteAverage()));
     }
 }

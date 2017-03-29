@@ -27,4 +27,17 @@ public interface IDetailMovieFragment {
      */
     void setMovieDescription ( String description);
 
+    /**
+     * Metodo encargado de asignar la fecha de lanzamiento de la pelicula en la vista
+     * @param date fecha de salida
+     */
+    void setMovieDate( String date );
+
+
+    /**
+     * Metodo encargado de asignar el Rate de la vista
+     * @param rate recibe el Rate
+     */
+    void setMovieRate( String rate );
+
 }

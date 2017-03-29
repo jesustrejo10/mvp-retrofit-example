@@ -25,6 +25,9 @@ public class DetailMovieFragment extends Fragment implements IDetailMovieFragmen
     private TextView mMovieNameTV;
     private TextView mMovieDescriptionTV;
     private ImageView mMovieImageIV;
+    private TextView mMovieDateTV;
+    private TextView mMovieRateTV;
+
 
     /**
      * Constructor Vacio de la Clase DetailMovieFragment
@@ -37,8 +40,10 @@ public class DetailMovieFragment extends Fragment implements IDetailMovieFragmen
      * variables en codigo
      */
     private void setupViewValue(){
-        mMovieNameTV = (TextView) mView.findViewById(R.id.movie_att1);
-        mMovieDescriptionTV = (TextView) mView.findViewById(R.id.movie_att2);
+        mMovieNameTV = (TextView) mView.findViewById(R.id.movie_title);
+        mMovieDescriptionTV = (TextView) mView.findViewById(R.id.movie_overview);
+        mMovieDateTV = (TextView) mView.findViewById(R.id.movie_date);
+        mMovieRateTV = (TextView) mView.findViewById(R.id.movie_calification);
         mMovieImageIV = (ImageView) mView.findViewById(R.id.movie_photo);
     }
 
@@ -90,5 +95,23 @@ public class DetailMovieFragment extends Fragment implements IDetailMovieFragmen
     @Override
     public void setMovieDescription(String description) {
         mMovieDescriptionTV.setText(description);
+    }
+
+    /**
+     * Asigna en la vista la fecha
+     * @param date fecha de salida
+     */
+    @Override
+    public void setMovieDate(String date) {
+        mMovieDateTV.setText(date);
+    }
+
+    /**
+     * Asigna en la vista el Rate
+     * @param rate recibe el Rate
+     */
+    @Override
+    public void setMovieRate(String rate) {
+        mMovieRateTV.setText(rate+ " Stars ");
     }
 }

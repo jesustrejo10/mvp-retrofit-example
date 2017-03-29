@@ -3,32 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.test.trejo.jesus.grabilitytest.View.DetailMovieFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="20dp">
 
     <TextView
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/movie_name"/>
+        android:id="@+id/movie_title"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
 
     <ImageView
+        android:layout_margin="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/movie_photo"/>
+        android:id="@+id/movie_photo"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/movie_att1"/>
+        android:id="@+id/movie_calification"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/movie_att2"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/movie_date"
+        android:textSize="25sp"
+        android:layout_gravity="center_horizontal"/>
+
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/movie_att3"/>
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/movie_overview"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+
+
 
 
 
