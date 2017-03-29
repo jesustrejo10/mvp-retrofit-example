@@ -10,25 +10,33 @@ import android.provider.BaseColumns;
  * Created by jesus on 29/03/17.
  */
 
+/**
+ * Clase DAO, Encargada de realizar todas las operaciones de Base de Datos
+ * (aca se coloca toda la configuracion)
+ */
 public class DAO {
 
 
+    /**
+     * Constructor vacio de la clase DAO
+     */
+    public DAO(){}
 
-    public DAO(){
 
+    /**
+     * Clase publica statica MovieEntre, encargada de guardar los datos de la
+     * estructura de la tabla
+     */
+    static class MovieEntry implements BaseColumns {
 
-    }
-
-    public static class MovieEntry implements BaseColumns {
-
-        public static final String TABLE_NAME = "movie";
-        public static final String COLUMN_NAME_IMG_PATH = "backdrop_path";
-        public static final String COLUMN_NAME_TITLE = "original_title";
-        public static final String COLUMN_NAME_OVERVIEW = "overview";
-        public static final String COLUMN_NAME_RELEASE_DATE = "release_date";
-        public static final String COLUMN_NAME_TYPE = "type";
-        public static final String COLUMN_NAME_VOTE_AVERAGE = "vote_average";
-        public static final String COLUMN_NAME_EXTERNAL_ID = "movie_id";
+        static final String TABLE_NAME = "movie";
+        static final String COLUMN_NAME_IMG_PATH = "backdrop_path";
+        static final String COLUMN_NAME_TITLE = "original_title";
+        static final String COLUMN_NAME_OVERVIEW = "overview";
+        static final String COLUMN_NAME_RELEASE_DATE = "release_date";
+        static final String COLUMN_NAME_TYPE = "type";
+        static final String COLUMN_NAME_VOTE_AVERAGE = "vote_average";
+        static final String COLUMN_NAME_EXTERNAL_ID = "movie_id";
 
 
     }
@@ -51,6 +59,10 @@ public class DAO {
             "DROP TABLE IF EXISTS " + DAO.MovieEntry.TABLE_NAME;
 
 
+    /**
+     * Clase publica estatica MovieReaderDbHelper
+     * Encargada de ser el apoyo para realizar las consultas contra la BD
+     */
 
     public static class MovieReaderDbHelper extends SQLiteOpenHelper {
         public static final int DATABASE_VERSION = 3;

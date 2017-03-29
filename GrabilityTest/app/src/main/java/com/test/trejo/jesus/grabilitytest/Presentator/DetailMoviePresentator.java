@@ -28,6 +28,11 @@ public class DetailMoviePresentator extends Presentator implements IDetailMovieP
     private Context mContext;
     private IDetailMovieFragment mFragment;
 
+    /**
+     * Constructor de la clase DetailMoviePresentator
+     * @param context Recibe como entrada el Contexto de la aplicacion
+     * @param fragment Recibe como entrada la instancia de la vista que lo invoco
+     */
     public DetailMoviePresentator(Context context,DetailMovieFragment fragment){
 
         this.mFragment = fragment;
@@ -35,6 +40,11 @@ public class DetailMoviePresentator extends Presentator implements IDetailMovieP
 
     }
 
+
+    /**
+     * Metodo que permite obtener una pelicula a detalle
+     * @param id recibe como parametro el Id externo de la pelicula
+     */
     @Override
     public void getDetailMovie(final int id) {
         MyApiEndpointInterface apiService =
@@ -69,6 +79,12 @@ public class DetailMoviePresentator extends Presentator implements IDetailMovieP
 
     }
 
+
+    /**
+     * Metodo que permite enviar a la vista que invoco al presentador
+     * los valores a detalle que seran mostrados, Titulo, Descripcion e imagen
+     * @param movie Recibe como entrada un objeto de tipo Movie
+     */
     private void sendValuesToView(Movie movie){
 
         mFragment.setMovieName(movie.getOriginalTitle());

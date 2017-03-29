@@ -20,11 +20,10 @@ import com.test.trejo.jesus.grabilitytest.Presentator.IPresentator.IMoviesListPr
 import com.test.trejo.jesus.grabilitytest.Presentator.MoviesListPresentator;
 import com.test.trejo.jesus.grabilitytest.R;
 import com.test.trejo.jesus.grabilitytest.View.IView.IMoviesListFragment;
-import com.test.trejo.jesus.grabilitytest.View.IView.IView;
 
 import java.util.List;
 
-public class MoviesListFragment extends Fragment implements IMoviesListFragment, IView {
+public class MoviesListFragment extends Fragment implements IMoviesListFragment {
 
     private String DEFAULT_SEARCH = "popular";
     private int mPage = 1;

@@ -6,5 +6,9 @@ package com.test.trejo.jesus.grabilitytest.Presentator.IPresentator;
 
 public interface IDetailMoviePresentator {
 
+    /**
+     * Metodo que permite obtener una pelicula a detalle
+     * @param id recibe como parametro el Id externo de la pelicula
+     */
     void getDetailMovie(int id);
 }

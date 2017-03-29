@@ -20,6 +20,9 @@ import java.util.List;
 
 import static com.test.trejo.jesus.grabilitytest.R.layout.list_item_movie;
 
+/**
+ * Adapter para mostrar la lista de peliculas
+ */
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
 
     private List<Movie> movies;
@@ -31,6 +34,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         return movies;
     }
 
+
+    /**
+     * Clase MovieViewHolder, aca se declaran los elmentos que seran mostrados
+     * en cada fila
+     */
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
         LinearLayout moviesLayout;
         TextView movieTitle;
@@ -38,6 +46,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         TextView movieDescription;
         TextView rating;
 
+        /**
+         * Se asignan a los campos de la vista sus valores reales
+         * @param v recibe la Vista
+         */
 
         public MovieViewHolder(View v) {
             super(v);
@@ -51,12 +63,20 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         }
     }
 
+    /**
+     * Constructor de la clase MoviesAdapter
+     * @param movies Recibe la lista de peliculas que seran mostradas
+     * @param rowLayout
+     * @param context
+     * @param mCallBack
+     */
     public MoviesAdapter(List<Movie> movies, int rowLayout, Context context, OnFragmentSwap mCallBack) {
         this.movies = movies;
         this.rowLayout = rowLayout;
         this.context = context;
         this.mCallBack = mCallBack;
     }
+
 
     @Override
     public MoviesAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent,
@@ -65,17 +85,21 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         return new MovieViewHolder(view);
     }
 
-
+    /**
+     * Metodo Que se ejecuta Cada vez que es asignada una fila
+     * Se utiliza para realizar el Listener del click en la fila
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(MovieViewHolder holder, final int position) {
         holder.movieTitle.setText(movies.get(position).getTitle());
         holder.data.setText(movies.get(position).getReleaseDate());
         holder.movieDescription.setText(movies.get(position).getOverview());
         holder.rating.setText(movies.get(position).getVoteAverage().toString());
-        holder.rating.setOnClickListener(new View.OnClickListener() {
+        holder.moviesLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("pelado peludo pelempempudo");
                 int id  = movies.get(position).getId();
                 Bundle bundle = new Bundle();
                 bundle.putInt("movieId",id);

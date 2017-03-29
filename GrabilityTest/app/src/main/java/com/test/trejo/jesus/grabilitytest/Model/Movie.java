@@ -8,6 +8,11 @@ import java.util.List;
  * Created by jesus on 26/03/17.
  */
 
+/**
+ * Clase Movie, Aca se encuentra el Dominio de nuestra aplicacion
+ * Los atributos se encuentran "anotados" para facilitar la construccion del Objeto
+ * a partir de un Json utilizando la clase GSON
+ */
 public class Movie {
 
     String name;
@@ -40,6 +45,25 @@ public class Movie {
     @SerializedName("vote_average")
     private Double voteAverage;
 
+
+    /**
+     * Constructor Original a partir del servicio web, se almacena
+     * toda la informacion que es proporcionada por el mismo
+     * @param posterPath Ruta de la Imagen
+     * @param adult si la pelicula tiene contenido Pornografico
+     * @param overview Resumen de la Pelicula
+     * @param releaseDate Fecha de Estreno
+     * @param genreIds Ids de los generos a los que aplica la pelicula
+     * @param id Id de la pelicula segun el Servicio web
+     * @param originalTitle Titulo Orignal de lanzamiento
+     * @param originalLanguage Lenguage original de la pelicula
+     * @param title Titulo de la Pelicula
+     * @param backdropPath Ruta de la Imagen
+     * @param popularity Popularidad de la pelicula
+     * @param voteCount Cantidad de votos registrados
+     * @param video Video de la pelicula o trailer
+     * @param voteAverage En porcentaje que tan buela es la pelicula
+     */
     public Movie(String posterPath, boolean adult, String overview, String releaseDate, List<Integer> genreIds, Integer id,
                  String originalTitle, String originalLanguage, String title, String backdropPath, Double popularity,
                  Integer voteCount, Boolean video, Double voteAverage) {
@@ -60,6 +84,15 @@ public class Movie {
         this.voteAverage = voteAverage;
     }
 
+    /**
+     * Constructor detalladado de la pelicula, se almacenan solo los datos
+     * que seran mostrados en las vistas
+     * @param id Id de la pelicula segun el servicio web
+     * @param title Titulo de la pelicula
+     * @param overview Resuman
+     * @param releaseDate Fecha de lanzamiento
+     * @param voteAverage Average de votos
+     */
     public Movie(Integer id, String title, String overview, String releaseDate, Double voteAverage){
         this.id = id;
         this.title = title;

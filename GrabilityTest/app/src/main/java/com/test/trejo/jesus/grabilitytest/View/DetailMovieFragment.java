@@ -26,23 +26,28 @@ public class DetailMovieFragment extends Fragment implements IDetailMovieFragmen
     private TextView mMovieDescriptionTV;
     private ImageView mMovieImageIV;
 
+    /**
+     * Constructor Vacio de la Clase DetailMovieFragment
+     */
+    public DetailMovieFragment() {
+    }
+
+    /**
+     * Metodo encargado de asignar los valores de la vista a sus respectivas
+     * variables en codigo
+     */
     private void setupViewValue(){
         mMovieNameTV = (TextView) mView.findViewById(R.id.movie_att1);
         mMovieDescriptionTV = (TextView) mView.findViewById(R.id.movie_att2);
         mMovieImageIV = (ImageView) mView.findViewById(R.id.movie_photo);
     }
 
-
-    public DetailMovieFragment() {
-    }
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,17 +64,29 @@ public class DetailMovieFragment extends Fragment implements IDetailMovieFragmen
     }
 
 
+    /**
+     * Metodo encargado de asignar el valor al campo del titulo en la vista
+     * @param name recibe el Titulo de la pelicula
+     */
     @Override
     public void setMovieName(String name) {
         mMovieNameTV.setText(name);
     }
 
+    /**
+     * Meotodo encargado de cargar la imagen en la vista
+     * @param Uri Recibe el URL en el que se encuentra almacenada la imagen
+     */
     @Override
     public void setMovieImage(String Uri) {
         Picasso.with(getContext()).load(Uri).into(mMovieImageIV);
 
     }
 
+    /**
+     * Metodo encargado de asignar el titulo en la vista
+     * @param description recibe el Titulo de la pelicula
+     */
     @Override
     public void setMovieDescription(String description) {
         mMovieDescriptionTV.setText(description);

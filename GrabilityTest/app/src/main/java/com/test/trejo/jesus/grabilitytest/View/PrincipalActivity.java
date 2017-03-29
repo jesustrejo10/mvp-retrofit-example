@@ -18,7 +18,6 @@ public class PrincipalActivity extends AppCompatActivity implements OnFragmentSw
     private FragmentManager FM = getSupportFragmentManager();
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -71,6 +70,11 @@ public class PrincipalActivity extends AppCompatActivity implements OnFragmentSw
 
     }
 
+    /**
+     * Metodo Encargado de Realizar el cambio entre fragments
+     * @param FragmentName Nombre del fragment al que se desea acceder
+     * @param bundle bundle que contiene la informacion que se le desea
+     */
     @Override
     public void onSwap(String FragmentName, Bundle bundle) {
 
