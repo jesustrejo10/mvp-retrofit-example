@@ -188,16 +188,21 @@ public class MoviesListFragment extends Fragment implements IMoviesListFragment 
 
                 if (movieList != null)
                     if (movieList.size() > 1) {
-                        mListMovie = movieList;
-                        mAdapter = new MoviesAdapter(mListMovie, R.id.recycler_view, getContext(), mCallBack);
-                        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-                        mRecyclerView.setAdapter(mAdapter);
-                        mPage = mListMovie.size() / 20 + 1;
-                        if (mPage == 1)
+                        if ( movieList.size() == mListMovie.size()){
+                            stopLoading();
                             showToast("To get More Movies You need Internet");
-                        stopLoading();
+                        }else{
+                            mListMovie = movieList;
+                            mAdapter = new MoviesAdapter(mListMovie, R.id.recycler_view, getContext(), mCallBack);
+                            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                            mRecyclerView.setLayoutManager(layoutManager);
+                            mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                            mRecyclerView.setAdapter(mAdapter);
+                            mPage = mListMovie.size() / 20 + 1;
+                            if (mPage == 1)
+                                showToast("To get More Movies You need Internet");
+                            stopLoading();
+                        }
                     } else
                         showToast("To get More Movies You need Internet");
                 stopLoading();

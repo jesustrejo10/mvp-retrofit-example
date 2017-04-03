@@ -49,7 +49,6 @@ public class DetailMoviePresentator extends Presentator implements IDetailMovieP
     public void getDetailMovie(final int id) {
         MyApiEndpointInterface apiService =
                 ApiClient.getClient().create(MyApiEndpointInterface.class);
-
         Call<Movie> call = apiService.getMovieDetails(id,API_KEY);
         call.enqueue(new Callback<Movie>() {
             @Override
@@ -57,26 +56,20 @@ public class DetailMoviePresentator extends Presentator implements IDetailMovieP
                 int statusCode = response.code();
                 try{
                     Movie movie = response.body();
-                    System.out.println("ola");
                     sendValuesToView(movie);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-
             }
 
             @Override
             public void onFailure(Call<Movie> call, Throwable t) {
                 daoMovie  = new DAOMovie();
                 Movie m = daoMovie.FetchMovieById(mContext,Integer.toString(id));
-                System.out.println("olamunod");
                 sendValuesToView(m);
-
+                //Transporter.getBus().post(m);
             }
-
-
         });
-
     }
 
 

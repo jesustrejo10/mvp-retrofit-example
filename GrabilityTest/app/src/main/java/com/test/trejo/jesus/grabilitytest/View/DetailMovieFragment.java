@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
 import com.squareup.picasso.Picasso;
+import com.test.trejo.jesus.grabilitytest.Model.Movie;
 import com.test.trejo.jesus.grabilitytest.Presentator.DetailMoviePresentator;
 import com.test.trejo.jesus.grabilitytest.Presentator.IPresentator.IDetailMoviePresentator;
+import com.test.trejo.jesus.grabilitytest.Presentator.Transporter;
 import com.test.trejo.jesus.grabilitytest.R;
 import com.test.trejo.jesus.grabilitytest.View.IView.IDetailMovieFragment;
 
@@ -114,4 +117,33 @@ public class DetailMovieFragment extends Fragment implements IDetailMovieFragmen
     public void setMovieRate(String rate) {
         mMovieRateTV.setText(rate+ " Stars ");
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Transporter.getBus().register(this);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Transporter.getBus().unregister(this);
+    }
+
+    /**
+     * Metodo que permite recibir mensajes a traves de OTTO
+     * Listener qeu sera activado cuando se realice un Post de la clase
+     * Transporter.
+     * @param movie
+     */
+    @Subscribe
+    public void getMovie(Movie movie){
+        //Aca facilmente puedo obtener la pelicula obtenida por el presentador, sin embargo,
+        //al recibir un tipo de Dato Movie, la Capa de Vista, tendria acceso al modelo, saltando
+        // encima de la capa de presentacion, por ello, se decidio pasar la data con tipos de datos
+        //primitivos como lo son los String a traves de los metodos contenidos en el contrato de la
+        //vista.
+
+    }
+
 }

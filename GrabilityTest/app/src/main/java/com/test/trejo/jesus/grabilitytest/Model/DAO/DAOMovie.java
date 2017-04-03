@@ -71,7 +71,6 @@ public class DAOMovie implements IDAOMovie {
 
         }
 
-        System.out.println("pechoCuadrado");
         return (mList);
 
     }
